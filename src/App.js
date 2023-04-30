@@ -1,57 +1,15 @@
+import A from "./A";
 import "./App.css";
-import React, { useState } from "react";
-import Counter from "./Counter";
+import React, { useContext } from "react";
 
-// function App() {
-//   const [open, setOpen] = useState(false);
-//   const [count, setCounter] = useState(0);
-//   const handleCount = () => {
-//     setCounter(count + 1);
-//   };
-//   const showCounter  =()=>{
-//     setOpen(~open);
-//   }
-//   return (
-//     <div className="App">
-//       <button onClick={showCounter}>Toggle Counter</button>
-//       {open ? <Counter count={count} countSetter={handleCount} /> :""}
-//     </div>
-//   );
-// }
-
-class App extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      count: 0,
-      open: false,
-    };
-  }
-  //!Note Error Boundaries example
-  componentDidUpdate(){
-    if(this.state.count < 0){
-        throw new Error('Negative Values are not allowed right');
-    }
-  }
-  render() {
-    const handleCount = (type) => {
-      if(type == 1)this.setState({count:this.state.count+1});
-      else this.setState({count:this.state.count-1});
-    };
-    
-    const showCounter = () => {
-      this.setState({open:~this.state.open});
-    };
-    return (
-      <>
-        <button onClick={showCounter}>Toggle Counter</button>
-        {this.state.open ? (
-          <Counter count={this.state.count} />
-        ) : (
-          ""
-        )}
-      </>
-    );
-  }
-}
+export const PowerContext = React.createContext(); // step 1 : create context
+const App = () => {
+  return (
+    <div>
+      <PowerContext.Provider value={"infinity manipulation"}> // step 2: wrap the parent component
+        <A /> // parent component of component C
+      </PowerContext.Provider>
+    </div>
+  );
+};
 export default App;
