@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
 import { PowerContext } from "./App"; // step 3: import the created Context
+import { MoneyContext } from "./App";
 const C = () => {
+  const money = useContext(MoneyContext);
   return (
     <>
       <h1>Component C</h1>
@@ -11,6 +13,8 @@ const C = () => {
           return <div>{power}</div>;
         }}
       </PowerContext.Consumer>
+      {/* UseContext Hook version Below */}
+      <h1>Its Money Context : {money}</h1>
     </>
   );
 };
