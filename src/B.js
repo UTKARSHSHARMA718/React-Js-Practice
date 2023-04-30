@@ -2,7 +2,7 @@ import React from 'react'
 import C from './C'
 import { PowerContext } from './App'
 const B =()=> {
-  
+    // same steps as done in C
     return (
       <div>
         Component B
