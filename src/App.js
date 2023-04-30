@@ -6,7 +6,8 @@ export const PowerContext = React.createContext(); // step 1 : create context
 const App = () => {
   return (
     <div>
-      <PowerContext.Provider value={"infinity manipulation"}> // step 2: wrap the parent component
+      {/* // step 2: wrap the parent component */}
+      <PowerContext.Provider value={"infinity manipulation"}> 
         <A /> // parent component of component C
       </PowerContext.Provider>
     </div>
